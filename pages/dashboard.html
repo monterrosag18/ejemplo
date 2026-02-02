@@ -1,263 +1,329 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUDZASO - Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- SweetAlert2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/styles.css">
-    <!-- 
-        🏠 DASHBOARD PRINCIPAL - CRUDZASO v1 (HUMANIZADA)
-        
-        ¡Bienvenido al corazón de CRUDZASO! 💖
-        
-        Esta es la página más importante de toda la aplicación.
-        Aquí los usuarios ven un resumen completo de su actividad académica:
-        
-        📊 Estadísticas de rendimiento
-        📋 Lista de tareas recientes  
-        🎯 Métricas de progreso
-        ⚡ Accesos rápidos a funciones
-        
-        El diseño está basado fielmente en el Figma original,
-        con un layout limpio y funcional que prioriza la información
-        más importante para el usuario.
-        
-        ¡Es aquí donde los estudiantes toman control de su éxito académico!
-    -->
+    <!-- Dashboard Administrativo - CRUDZASO -->
 </head>
 <body>
-    <!-- 
-        NAVEGACIÓN SUPERIOR PRINCIPAL
-        
-        Barra sticky que permanece visible mientras el usuario navega.
-        Incluye branding, navegación principal y perfil de usuario.
-    -->
-    <nav class="navbar">
-        <!-- Logo y nombre de la aplicación -->
-        <div class="nav-brand">
-            <div class="logo-icon">📚</div>
-            <span class="app-title">CRUDZASO</span>
-        </div>
-        
-        <!-- Enlaces de navegación principales -->
-        <div class="nav-links">
-            <a href="#" class="nav-link active">🏠 Dashboard</a>
-        </div>
-        
-        <!-- 
-            Información del usuario autenticado
-            
-            Muestra nombre, rol y avatar del usuario actual.
-            Al hacer click, redirige al perfil para editar información.
-        -->
-        <div class="user-profile" onclick="goToProfile()">
-            <div class="user-info">
-                <span class="user-name" id="current-user-name">Alex Morgan</span>
-                <span class="user-role" id="current-user-role">Product Designer</span>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px; background: #3b4351; border-radius: 10px;">
+                    <i class="bi bi-bookmark-fill text-white"></i>
+                </div>
+                <span class="fw-bold">CRUDZASO</span>
+            </a>
+
+            <!-- Breadcrumb -->
+            <div class="d-none d-md-flex align-items-center ms-4">
+                <i class="bi bi-house-door me-2 text-muted"></i>
+                <i class="bi bi-chevron-right text-muted mx-2 small"></i>
+                <span class="text-muted">Dashboard</span>
             </div>
-            <div class="user-avatar">👤</div>
+
+            <!-- Right Side -->
+            <div class="ms-auto d-flex align-items-center">
+                <button class="btn btn-link text-dark me-3" type="button">
+                    <i class="bi bi-bell"></i>
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-link text-dark dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=2563eb&color=fff" class="rounded-circle me-2" width="32" height="32" alt="User">
+                        <div class="text-start d-none d-md-block">
+                            <div class="small fw-semibold" id="userName">Alex Morgan</div>
+                            <div class="text-muted" style="font-size: 0.75rem;" id="userRole">Product Designer</div>
+                        </div>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person me-2"></i>Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="../index.html" id="logoutBtn"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </nav>
-    
-    <!-- 
-        CONTENIDO PRINCIPAL DEL DASHBOARD
-        
-        Layout de sidebar + área de contenido para máxima flexibilidad.
-    -->
-    <main class="main-content">
-        <!-- 
-            NAVEGACIÓN LATERAL
-            
-            Menú de acceso rápido a las principales secciones de CRUDZASO.
-            Iconos intuitivos y etiquetas claras para fácil navegación.
-        -->
-        <aside class="sidebar">
-            <nav class="sidebar-nav">
-                <a href="dashboard.html" class="sidebar-link active">
-                    📊 Dashboard
-                </a>
-                <a href="tasks.html" class="sidebar-link">
-                    📋 My Tasks
-                </a>
-                <a href="profile.html" class="sidebar-link">
-                    👤 Profile
-                </a>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-md-block bg-light sidebar py-3">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active d-flex align-items-center" href="dashboard.html">
+                                <i class="bi bi-grid me-2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="tasks.html">
+                                <i class="bi bi-check2-square me-2"></i>
+                                My Tasks
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center" href="profile.html">
+                                <i class="bi bi-person me-2"></i>
+                                Profile
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </nav>
-        </aside>
-        
-        <!-- 
-            ÁREA PRINCIPAL DE CONTENIDO
-            
-            Aquí se muestra toda la información relevante del dashboard.
-        -->
-        <div class="content-area">
-            <!-- 
-                ENCABEZADO DEL TASK MANAGER
-                
-                Título, descripción y acción principal (crear nueva tarea).
-                El botón "New Task" debe ser prominente para facilitar la acción.
-            -->
-            <div class="dashboard-header">
-                <div class="section-info">
-                    <h1>Task Manager</h1>
-                    <p>Overview of your current academic performance tasks.</p>
+
+            <!-- Content Area -->
+            <main class="col-md-10 ms-sm-auto px-md-4 py-4">
+                <!-- Page Header -->
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h1 class="h3 fw-bold mb-1">Task Manager</h1>
+                        <p class="text-muted mb-0">Overview of your current academic performance tasks.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="window.location.href='create-task.html'">
+                        <i class="bi bi-plus-lg me-2"></i>New Task
+                    </button>
                 </div>
-                
-                <!-- 
-                    Botón CTA principal
-                    
-                    Acción más común que los usuarios realizarán.
-                    Color azul prominente siguiendo el diseño del Figma.
-                -->
-                <button class="btn btn-primary" onclick="goToCreateTask()">
-                    ➕ New Task
-                </button>
-            </div>
-            
-            <!-- 
-                GRID DE ESTADÍSTICAS PRINCIPALES
-                
-                Métricas clave organizadas en tarjetas visuales.
-                Cada tarjeta muestra un número importante y su contexto.
-                
-                Las estadísticas se actualizan dinámicamente cuando
-                el usuario crea, edita o completa tareas.
-            -->
-            <div class="stats-grid">
-                <!-- 
-                    TOTAL DE TAREAS
-                    
-                    Número total de tareas en el sistema del usuario.
-                    Incluye pendientes, en progreso y completadas.
-                -->
-                <div class="stat-card">
-                    <div class="stat-icon">📚</div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="total-tasks">24</div>
-                        <div class="stat-label">Total Tasks</div>
-                        <div class="stat-trend positive">📈 +12% from last week</div>
+
+                <!-- Stats Cards -->
+                <div class="row g-3 mb-4">
+                    <!-- Total Tasks -->
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <p class="text-muted mb-1 small">Total Tasks</p>
+                                        <h2 class="fw-bold mb-0" id="totalTasks">24</h2>
+                                    </div>
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(37, 99, 235, 0.1);">
+                                        <i class="bi bi-stack text-primary" style="font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-arrow-up text-success me-1 small"></i>
+                                    <span class="text-success small fw-medium">+12%</span>
+                                    <span class="text-muted small ms-1">from last week</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Completed -->
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <p class="text-muted mb-1 small">Completed</p>
+                                        <h2 class="fw-bold mb-0" id="completedTasks">18</h2>
+                                    </div>
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(34, 197, 94, 0.1);">
+                                        <i class="bi bi-check-circle text-success" style="font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-check text-success me-1 small"></i>
+                                    <span class="text-success small fw-medium">On track</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pending -->
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <p class="text-muted mb-1 small">Pending</p>
+                                        <h2 class="fw-bold mb-0" id="pendingTasks">6</h2>
+                                    </div>
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(249, 115, 22, 0.1);">
+                                        <i class="bi bi-clock text-warning" style="font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-exclamation-circle text-warning me-1 small"></i>
+                                    <span class="text-warning small fw-medium">2 High Priority</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Overall Progress -->
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <p class="text-muted mb-1 small">Overall Progress</p>
+                                        <h2 class="fw-bold mb-0" id="overallProgress">75%</h2>
+                                    </div>
+                                    <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(168, 85, 247, 0.1);">
+                                        <i class="bi bi-graph-up text-purple" style="font-size: 1.5rem; color: #a855f7;"></i>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="bi bi-arrow-up text-success me-1 small"></i>
+                                    <span class="text-success small fw-medium">Keep it up!</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- 
-                    TAREAS COMPLETADAS
-                    
-                    Indicador de productividad y progreso académico.
-                    Motivador positivo para el usuario.
-                -->
-                <div class="stat-card">
-                    <div class="stat-icon">✅</div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="completed-tasks">18</div>
-                        <div class="stat-label">Completed</div>
-                        <div class="stat-trend positive">✅ On track</div>
+
+                <!-- Task Filters -->
+                <div class="mb-3">
+                    <div class="input-group" style="max-width: 400px;">
+                        <span class="input-group-text bg-white border-end-0">
+                            <i class="bi bi-search text-muted"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0" placeholder="Search tasks..." id="searchTasks">
                     </div>
                 </div>
-                
-                <!-- 
-                    TAREAS PENDIENTES
-                    
-                    Indicador de trabajo por hacer.
-                    Destaca tareas de alta prioridad para atención inmediata.
-                -->
-                <div class="stat-card">
-                    <div class="stat-icon">⏰</div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="pending-tasks">6</div>
-                        <div class="stat-label">Pending</div>
-                        <div class="stat-trend warning">🔥 2 High Priority</div>
+
+                <!-- Filter Tabs -->
+                <ul class="nav nav-tabs mb-3" id="taskTabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-filter="all" href="#all">All Tasks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-filter="pending" href="#pending">Pending</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-filter="completed" href="#completed">Completed</a>
+                    </li>
+                </ul>
+
+                <!-- Tasks Table -->
+                <div class="card border-0 shadow-sm">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th class="border-0 text-muted small fw-medium ps-4">TASK NAME</th>
+                                    <th class="border-0 text-muted small fw-medium">ASSIGNEE</th>
+                                    <th class="border-0 text-muted small fw-medium">STATUS</th>
+                                    <th class="border-0 text-muted small fw-medium">PRIORITY</th>
+                                    <th class="border-0 text-muted small fw-medium">DUE DATE</th>
+                                    <th class="border-0 text-muted small fw-medium pe-4">ACTIONS</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tasksTableBody">
+                                <!-- Sample Data -->
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="fw-medium">Update Documentation</div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://ui-avatars.com/api/?name=Sarah+Lin&background=random" class="rounded-circle me-2" width="32" height="32" alt="Sarah">
+                                            <span>Sarah Lin</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-primary-subtle text-primary border border-primary">In Progress</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-warning text-white">Medium</span>
+                                    </td>
+                                    <td class="text-muted">Oct 24, 2023</td>
+                                    <td class="pe-4">
+                                        <button class="btn btn-sm btn-link text-primary"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-link text-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="fw-medium">Fix Login Authentication</div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://ui-avatars.com/api/?name=Raj+Patel&background=random" class="rounded-circle me-2" width="32" height="32" alt="Raj">
+                                            <span>Raj Patel</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-warning-subtle text-warning border border-warning">Pending</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-danger text-white">High</span>
+                                    </td>
+                                    <td class="text-muted">Oct 22, 2023</td>
+                                    <td class="pe-4">
+                                        <button class="btn btn-sm btn-link text-primary"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-link text-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="fw-medium">Quarterly Review</div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://ui-avatars.com/api/?name=Michelle+O&background=random" class="rounded-circle me-2" width="32" height="32" alt="Michelle">
+                                            <span>Michelle O.</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-success-subtle text-success border border-success">Completed</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary text-white">Low</span>
+                                    </td>
+                                    <td class="text-muted">Oct 20, 2023</td>
+                                    <td class="pe-4">
+                                        <button class="btn btn-sm btn-link text-muted"><i class="bi bi-eye"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4">
+                                        <div class="fw-medium">Database Optimization</div>
+                                    </td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <img src="https://ui-avatars.com/api/?name=Carlos+M&background=random" class="rounded-circle me-2" width="32" height="32" alt="Carlos">
+                                            <span>Carlos M.</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-primary-subtle text-primary border border-primary">In Progress</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-danger text-white">High</span>
+                                    </td>
+                                    <td class="text-muted">Oct 25, 2023</td>
+                                    <td class="pe-4">
+                                        <button class="btn btn-sm btn-link text-primary"><i class="bi bi-pencil"></i></button>
+                                        <button class="btn btn-sm btn-link text-danger"><i class="bi bi-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                
-                <!-- 
-                    PROGRESO GENERAL
-                    
-                    Porcentaje de completitud general.
-                    Gamificación para motivar al usuario a seguir progresando.
-                -->
-                <div class="stat-card">
-                    <div class="stat-icon">📊</div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="overall-progress">75%</div>
-                        <div class="stat-label">Overall Progress</div>
-                        <div class="stat-trend positive">🎯 Keep it up!</div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- 
-                SECCIÓN DE TAREAS RECIENTES
-                
-                Vista rápida de las tareas más relevantes para el usuario.
-                Permite acciones rápidas sin necesidad de ir a la vista completa de tareas.
-            -->
-            <div class="recent-tasks-section">
-                <h2>Recent Tasks</h2>
-                
-                <!-- 
-                    FILTROS RÁPIDOS
-                    
-                    Permiten al usuario cambiar la vista sin recargar la página.
-                    Filtros comunes: Todas, Pendientes, Completadas.
-                -->
-                <div class="task-filters">
-                    <button class="filter-btn active" onclick="filterTasks('all')">All Tasks</button>
-                    <button class="filter-btn" onclick="filterTasks('pending')">Pending</button>
-                    <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
-                </div>
-                
-                <!-- 
-                    TABLA DE TAREAS
-                    
-                    Lista organizada con información esencial de cada tarea:
-                    - Nombre y descripción
-                    - Asignado a (en caso de trabajo en equipo)
-                    - Estado actual (Pending, In Progress, Completed)
-                    - Prioridad (Low, Medium, High)
-                    - Fecha límite
-                    - Acciones disponibles (editar, eliminar, cambiar estado)
-                    
-                    El diseño es responsive y se adapta a diferentes tamaños de pantalla.
-                -->
-                <div class="tasks-table">
-                    <!-- Encabezado de la tabla -->
-                    <div class="table-header">
-                        <div class="col-task">TASK NAME</div>
-                        <div class="col-assignee">ASSIGNEE</div>
-                        <div class="col-status">STATUS</div>
-                        <div class="col-priority">PRIORITY</div>
-                        <div class="col-due">DUE DATE</div>
-                        <div class="col-actions">ACTIONS</div>
-                    </div>
-                    
-                    <!-- 
-                        CONTENEDOR DE FILAS DE TAREAS
-                        
-                        Las tareas se cargan dinámicamente desde JavaScript.
-                        Esto permite actualizaciones en tiempo real sin recargar la página.
-                    -->
-                    <div id="tasks-container" class="table-body">
-                        <!-- Las tareas se cargarán aquí dinámicamente -->
-                    </div>
-                </div>
-            </div>
+            </main>
         </div>
-    </main>
-    
-    <!-- 
-        JAVASCRIPT PARA FUNCIONALIDAD DEL DASHBOARD
-        
-        Este script maneja:
-        - Carga inicial de datos de usuario y tareas
-        - Actualización de estadísticas en tiempo real
-        - Filtrado de tareas
-        - Navegación a otras páginas
-        - Acciones rápidas (editar, eliminar tareas)
-        - Actualización del estado de tareas
-        
-        Toda la interactividad del dashboard está aquí centralizada
-        para facilitar el mantenimiento y debugging.
-    -->
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.all.min.js"></script>
+    <!-- Dashboard Script -->
     <script src="../assets/js/dashboard.js"></script>
 </body>
 </html>
