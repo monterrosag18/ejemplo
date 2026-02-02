@@ -82,7 +82,46 @@ body {
 
 /* Stats Cards */
 .stat-card {
+    background: white;
     border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+}
+
+.stat-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.stat-icon.primary {
+    background: #eff6ff;
+    color: var(--primary-color);
+}
+
+.stat-icon.success {
+    background: #d1fae5;
+    color: #10b981;
+}
+
+.stat-icon.warning {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.stat-icon.danger {
+    background: #fee2e2;
+    color: #ef4444;
 }
 
 /* ================================
@@ -199,20 +238,6 @@ body {
 }
 
 /* ================================
-   RESPONSIVE UTILITIES
-   ================================ */
-
-@media (max-width: 768px) {
-    .sidebar {
-        display: none;
-    }
-    
-    .navbar-brand {
-        margin-right: auto;
-    }
-}
-
-/* ================================
    ANIMATIONS
    ================================ */
 
@@ -254,35 +279,8 @@ body {
 }
 
 /* ================================
-   UTILITY CLASSES
+   LOGIN & AUTH STYLES
    ================================ */
-
-.hover-shadow:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.cursor-pointer {
-    cursor: pointer;
-}
-
-.text-purple {
-    color: #a855f7 !important;
-}
-
-.bg-purple {
-    background-color: #a855f7 !important;
-}
-
-.border-radius-12 {
-    border-radius: 12px !important;
-}
-
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
-    padding: 2rem;
-}
 
 .logo-section {
     display: flex;
@@ -327,106 +325,6 @@ body {
 
 .forgot-password:hover {
     text-decoration: underline;
-}
-
-/* ================================
-   DASHBOARD LAYOUT
-   ================================ */
-
-.navbar {
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.nav-brand .logo-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.25rem;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: background-color 0.2s;
-}
-
-.user-profile:hover {
-    background-color: #f8fafc;
-}
-
-.user-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--primary-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-}
-
-.main-content {
-    display: flex;
-    min-height: calc(100vh - 72px);
-}
-
-.sidebar {
-    width: var(--sidebar-width);
-    background: white;
-    border-right: 1px solid #e2e8f0;
-    padding: 1.5rem;
-}
-
-.sidebar-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.sidebar-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    color: #64748b;
-    transition: all 0.2s;
-}
-
-.sidebar-link:hover {
-    background: #f8fafc;
-    color: var(--primary-color);
-}
-
-.sidebar-link.active {
-    background: #eff6ff;
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.content-area {
-    flex: 1;
-    padding: 2rem;
-    background: #f8fafc;
 }
 
 /* ================================
@@ -484,50 +382,43 @@ body {
 }
 
 /* ================================
-   STATS CARDS
+   UTILITY CLASSES
    ================================ */
 
-.stat-card {
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s;
+.hover-shadow:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.stat-card:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.cursor-pointer {
+    cursor: pointer;
 }
 
-.stat-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.text-purple {
+    color: #a855f7 !important;
 }
 
-.stat-icon.primary {
-    background: #eff6ff;
-    color: var(--primary-color);
+.bg-purple {
+    background-color: #a855f7 !important;
 }
 
-.stat-icon.success {
-    background: #d1fae5;
-    color: #10b981;
+.border-radius-12 {
+    border-radius: 12px !important;
 }
 
-.stat-icon.warning {
-    background: #fef3c7;
-    color: #f59e0b;
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
-.stat-icon.danger {
-    background: #fee2e2;
-    color: #ef4444;
+.hover-scale {
+    transition: transform 0.2s;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
 }
 
 /* ================================
@@ -535,10 +426,6 @@ body {
    ================================ */
 
 @media (max-width: 768px) {
-    .navbar {
-        padding: 1rem;
-    }
-    
     .sidebar {
         position: fixed;
         left: -100%;
@@ -552,6 +439,14 @@ body {
         left: 0;
     }
     
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .navbar-brand {
+        margin-right: auto;
+    }
+    
     .content-area {
         padding: 1rem;
     }
@@ -559,45 +454,4 @@ body {
     .auth-form {
         padding: 1.5rem;
     }
-}
-
-/* ================================
-   UTILITY CLASSES
-   ================================ */
-
-.text-gradient {
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.hover-scale {
-    transition: transform 0.2s;
-}
-
-.hover-scale:hover {
-    transform: scale(1.05);
-}
-
-/* ================================
-   CUSTOM SCROLLBAR
-   ================================ */
-
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
 }
