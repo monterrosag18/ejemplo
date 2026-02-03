@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     currentUser = JSON.parse(session);
+    // Poblar navbar con datos del usuario actual
+    updateNavbarUser();
     
     // Mostrar info del usuario
     updateUserInfo();
@@ -27,6 +29,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Configurar logout
     document.getElementById('logoutBtn')?.addEventListener('click', logout);
 });
+
+function updateNavbarUser() {
+    try {
+        const name = currentUser?.name || 'User';
+        const roleLabel = currentUser?.role === 'admin' ? 'Admin' : 'Student';
+        const avatarUrl = currentUser?.avatar
+            ? currentUser.avatar
+            : `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=2563eb&color=fff`;
+
+        const navNameEl = document.getElementById('userName');
+        const navRoleEl = document.getElementById('userRole');
+        const navAvatarEl = document.getElementById('navAvatar');
+
+        if (navNameEl) navNameEl.textContent = name;
+        if (navRoleEl) navRoleEl.textContent = roleLabel;
+        if (navAvatarEl) navAvatarEl.src = avatarUrl;
+    } catch (e) {
+        console.warn('Navbar user update skipped:', e);
+    }
+}
 
 function updateUserInfo() {
     document.getElementById('userName').textContent = currentUser.name;

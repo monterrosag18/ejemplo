@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     currentUser = JSON.parse(session);
+    // Poblar navbar con datos del usuario actual
+    updateNavbarUser();
     
     // Cargar información completa del usuario
     await loadUserProfile();
@@ -24,6 +26,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('edit-profile-form')?.addEventListener('submit', handleSaveProfile);
     document.getElementById('logoutBtn')?.addEventListener('click', logout);
 });
+
+function updateNavbarUser() {
+    try {
+        const name = currentUser?.name || 'User';
+        const roleLabel = currentUser?.role === 'admin' ? 'Admin' : 'Student';
+        const avatarUrl = currentUser?.avatar
+            ? currentUser.avatar
+            : `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=2563eb&color=fff`;
+
+        const navNameEl = document.getElementById('navUserName');
+        const navRoleEl = document.getElementById('navUserRole');
+        const navAvatarEl = document.getElementById('navAvatar');
+
+        if (navNameEl) navNameEl.textContent = name;
+        if (navRoleEl) navRoleEl.textContent = roleLabel;
+        if (navAvatarEl) navAvatarEl.src = avatarUrl;
+    } catch (e) {
+        console.warn('Navbar user update skipped:', e);
+    }
+}
 
 async function loadUserProfile() {
     try {
@@ -49,6 +71,10 @@ async function loadUserProfile() {
 function updateProfileDisplay(user) {
     // Actualizar elementos del perfil
     document.getElementById('profileName').textContent = user.name;
+    const roleBadge = document.getElementById('profileRole');
+    if (roleBadge) {
+        roleBadge.textContent = user.role === 'admin' ? 'System Admin' : 'Student';
+    }
     document.getElementById('profileEmail').textContent = user.email;
     
     // Rol y avatares dinámicos

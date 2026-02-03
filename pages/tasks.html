@@ -39,10 +39,10 @@
                 </button>
                 <div class="dropdown">
                     <button class="btn btn-link text-dark dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown">
-                        <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=2563eb&color=fff" class="rounded-circle me-2" width="32" height="32" alt="User">
+                        <img id="navAvatar" src="https://ui-avatars.com/api/?name=User&background=2563eb&color=fff" class="rounded-circle me-2" width="32" height="32" alt="User">
                         <div class="text-start d-none d-md-block">
-                            <div class="small fw-semibold" id="userName">Alex Morgan</div>
-                            <div class="text-muted" style="font-size: 0.75rem;" id="userRole">Admin</div>
+                            <div class="small fw-semibold" id="userName">Loading...</div>
+                            <div class="text-muted" style="font-size: 0.75rem;" id="userRole">User</div>
                         </div>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -175,68 +175,8 @@
                     <div class="card-body p-0">
                         <!-- Table Header -->
                         <div class="d-flex align-items-center px-4 py-3 bg-light border-bottom">
-                            <div class="form-check me-3">
-                                <input class="form-check-input" type="checkbox" id="selectAll">
-                            </div>
-                            <div class="flex-grow-1">
-                                <span class="text-muted small fw-medium">TASK NAME</span>
-                            </div>
-                            <div style="width: 200px;" class="text-center">
-                                <span class="text-muted small fw-medium">CATEGORY</span>
-                            </div>
-                            <div style="width: 150px;" class="text-center">
-                                <span class="text-muted small fw-medium">PRIORITY</span>
-                            </div>
-                            <div style="width: 150px;" class="text-center">
-                                <span class="text-muted small fw-medium">STATUS</span>
-                            </div>
-                        </div>
-
-                        <!-- Task Items -->
-                        <div id="tasksList">
-                            <!-- Task 1 -->
-                            <div class="d-flex align-items-center px-4 py-3 border-bottom hover-bg">
-                                <div class="form-check me-3">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="fw-medium mb-1">Advanced Calculus Finals Prep</div>
-                                    <div class="small text-muted">ID: #MATH-402 • Due in 2 days</div>
-                                </div>
-                                <div style="width: 200px;" class="text-center">
-                                    <span class="badge bg-primary-subtle text-primary">Mathematics</span>
-                                </div>
-                                <div style="width: 150px;" class="text-center">
-                                    <span class="badge bg-danger text-white">High</span>
-                                </div>
-                                <div style="width: 150px;" class="text-center">
-                                    <span class="badge bg-warning-subtle text-warning">Pending</span>
-                                </div>
-                            </div>
-
-                            <!-- Task 2 -->
-                            <div class="d-flex align-items-center px-4 py-3 border-bottom hover-bg">
-                                <div class="form-check me-3">
-                                    <input class="form-check-input" type="checkbox">
-                                </div>
-                                <div class="flex-grow-1">
-                                    <div class="fw-medium mb-1">Physics Lab Report: Quantum Mechanics</div>
-                                    <div class="small text-muted">ID: #PHYS-301 • Due tomorrow</div>
-                                </div>
-                                <div style="width: 200px;" class="text-center">
-                                    <span class="badge bg-info-subtle text-info">Physics</span>
-                                </div>
-                                <div style="width: 150px;" class="text-center">
-                                    <span class="badge bg-warning text-white">Medium</span>
-                                </div>
-                                <div style="width: 150px;" class="text-center">
-                                    <span class="badge bg-primary-subtle text-primary">In Progress</span>
-                                </div>
-                            </div>
-
-                            <!-- Task 3 -->
-                            <div class="d-flex align-items-center px-4 py-3 border-bottom hover-bg">
-                                <div class="form-check me-3">
+                            <!-- Task Items -->
+                            <div id="tasksList"></div>
                                     <input class="form-check-input" type="checkbox">
                                 </div>
                                 <div class="flex-grow-1">

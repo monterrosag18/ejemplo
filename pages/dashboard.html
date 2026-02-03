@@ -39,10 +39,10 @@
                 </button>
                 <div class="dropdown">
                     <button class="btn btn-link text-dark dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown">
-                        <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=2563eb&color=fff" class="rounded-circle me-2" width="32" height="32" alt="User">
+                        <img id="navAvatar" src="https://ui-avatars.com/api/?name=User&background=2563eb&color=fff" class="rounded-circle me-2" width="32" height="32" alt="User">
                         <div class="text-start d-none d-md-block">
-                            <div class="small fw-semibold" id="userName">Alex Morgan</div>
-                            <div class="text-muted" style="font-size: 0.75rem;" id="userRole">Product Designer</div>
+                            <div class="small fw-semibold" id="userName">Loading...</div>
+                            <div class="text-muted" style="font-size: 0.75rem;" id="userRole">User</div>
                         </div>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -222,22 +222,7 @@
                                     <th class="border-0 text-muted small fw-medium pe-4">ACTIONS</th>
                                 </tr>
                             </thead>
-                            <tbody id="tasksTableBody">
-                                <!-- Sample Data -->
-                                <tr>
-                                    <td class="ps-4">
-                                        <div class="fw-medium">Update Documentation</div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex align-items-center">
-                                            <img src="https://ui-avatars.com/api/?name=Sarah+Lin&background=random" class="rounded-circle me-2" width="32" height="32" alt="Sarah">
-                                            <span>Sarah Lin</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="badge bg-primary-subtle text-primary border border-primary">In Progress</span>
-                                    </td>
-                                    <td>
+                            <tbody id="tasksTableBody"></tbody>
                                         <span class="badge bg-warning text-white">Medium</span>
                                     </td>
                                     <td class="text-muted">Oct 24, 2023</td>
