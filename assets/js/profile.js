@@ -51,6 +51,27 @@ function updateProfileDisplay(user) {
     document.getElementById('profileName').textContent = user.name;
     document.getElementById('profileEmail').textContent = user.email;
     
+    // Rol y avatares dinámicos
+    const roleLabel = user.role === 'admin' ? 'Admin' : 'Student';
+    const avatarUrl = user.avatar
+        ? user.avatar
+        : `https://ui-avatars.com/api/?name=${encodeURIComponent(user.name || 'User')}&background=2563eb&color=fff`;
+
+    const profileRoleEl = document.getElementById('profileRole');
+    if (profileRoleEl) profileRoleEl.textContent = roleLabel;
+
+    const profileAvatarEl = document.getElementById('profileAvatar');
+    if (profileAvatarEl) profileAvatarEl.src = avatarUrl;
+
+    const navUserNameEl = document.getElementById('navUserName');
+    if (navUserNameEl) navUserNameEl.textContent = user.name;
+
+    const navUserRoleEl = document.getElementById('navUserRole');
+    if (navUserRoleEl) navUserRoleEl.textContent = roleLabel;
+
+    const navAvatarEl = document.getElementById('navAvatar');
+    if (navAvatarEl) navAvatarEl.src = avatarUrl;
+    
     document.getElementById('infoFullName').textContent = user.name;
     document.getElementById('infoEmployeeId').textContent = user.studentId;
     document.getElementById('infoPhone').textContent = user.phoneNumber || 'Not specified';

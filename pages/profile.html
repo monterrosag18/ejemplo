@@ -32,10 +32,10 @@
                 </button>
                 <div class="dropdown">
                     <button class="btn btn-link text-dark dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown">
-                        <img src="https://ui-avatars.com/api/?name=Sarah+Jenkins&background=2563eb&color=fff" class="rounded-circle me-2" width="32" height="32" alt="User">
+                        <img id="navAvatar" src="https://ui-avatars.com/api/?name=User&background=2563eb&color=fff" class="rounded-circle me-2" width="32" height="32" alt="User">
                         <div class="text-start d-none d-md-block">
-                            <div class="small fw-semibold">Dr. Sarah J.</div>
-                            <div class="text-muted" style="font-size: 0.75rem;">Admin</div>
+                            <div class="small fw-semibold" id="navUserName">Loading...</div>
+                            <div class="text-muted" style="font-size: 0.75rem;" id="navUserRole">User</div>
                         </div>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -91,23 +91,23 @@
                             <div class="card-body text-center p-4">
                                 <!-- Profile Picture -->
                                 <div class="mb-3">
-                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" 
+                                    <img id="profileAvatar" src="https://ui-avatars.com/api/?name=User&background=2563eb&color=fff" 
                                          class="rounded-circle" width="120" height="120" alt="Profile">
                                 </div>
 
                                 <!-- Name and Role -->
-                                <h4 class="fw-bold mb-1" id="profileName">Dr. Sarah Jenkins</h4>
-                                <span class="badge bg-primary mb-3">System Admin</span>
+                                <h4 class="fw-bold mb-1" id="profileName">Loading...</h4>
+                                <span class="badge bg-primary mb-3" id="profileRole">User</span>
 
                                 <!-- Email -->
                                 <div class="d-flex align-items-center justify-content-center text-muted mb-4">
                                     <i class="bi bi-envelope me-2"></i>
-                                    <span id="profileEmail">sarah.jenkins@crudzaso.edu</span>
+                                    <span id="profileEmail">Loading...</span>
                                 </div>
 
                                 <!-- Stats -->
                                 <div class="border-top pt-3">
-                                    <h2 class="fw-bold mb-0" id="profileTaskCount">154</h2>
+                                    <h2 class="fw-bold mb-0" id="profileTaskCount">0</h2>
                                     <p class="text-muted mb-0">Tasks</p>
                                 </div>
                             </div>
@@ -132,15 +132,15 @@
                                     <div class="col-md-6">
                                         <div>
                                             <label class="text-muted small mb-1">Full Name</label>
-                                            <p class="fw-medium mb-0" id="infoFullName">Sarah Jenkins</p>
+                                            <p class="fw-medium mb-0" id="infoFullName">Loading...</p>
                                         </div>
                                     </div>
 
                                     <!-- Employee ID -->
                                     <div class="col-md-6">
                                         <div>
-                                            <label class="text-muted small mb-1">Employee ID</label>
-                                            <p class="fw-medium mb-0" id="infoEmployeeId">CZ-882103</p>
+                                            <label class="text-muted small mb-1">Student/Employee ID</label>
+                                            <p class="fw-medium mb-0" id="infoEmployeeId">Loading...</p>
                                         </div>
                                     </div>
 
@@ -148,7 +148,7 @@
                                     <div class="col-md-6">
                                         <div>
                                             <label class="text-muted small mb-1">Phone</label>
-                                            <p class="fw-medium mb-0" id="infoPhone">+1 (555) 123-4567</p>
+                                            <p class="fw-medium mb-0" id="infoPhone">Loading...</p>
                                         </div>
                                     </div>
 
@@ -157,7 +157,7 @@
                                         <div>
                                             <label class="text-muted small mb-1">Department</label>
                                             <p class="mb-0">
-                                                <span class="badge bg-warning text-dark" id="infoDepartment">Computer Science</span>
+                                                <span class="badge bg-warning text-dark" id="infoDepartment">Loading...</span>
                                             </p>
                                         </div>
                                     </div>
@@ -165,8 +165,8 @@
                                     <!-- Role Level -->
                                     <div class="col-md-6">
                                         <div>
-                                            <label class="text-muted small mb-1">Role Level</label>
-                                            <p class="fw-medium mb-0" id="infoRoleLevel">Senior Administrator</p>
+                                            <label class="text-muted small mb-1">Academic/Role Level</label>
+                                            <p class="fw-medium mb-0" id="infoRoleLevel">Loading...</p>
                                         </div>
                                     </div>
 
@@ -174,7 +174,7 @@
                                     <div class="col-md-6">
                                         <div>
                                             <label class="text-muted small mb-1">Join Date</label>
-                                            <p class="fw-medium mb-0" id="infoJoinDate">September 14, 2020</p>
+                                            <p class="fw-medium mb-0" id="infoJoinDate">Loading...</p>
                                         </div>
                                     </div>
                                 </div>
